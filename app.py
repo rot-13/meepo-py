@@ -14,8 +14,12 @@ pygame.display.update()
 
 font_big = pygame.font.Font(None, 100)
 
-k = 0
-while True:
+running = True
+while running:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+
     k += 1
     text_surface = font_big.render('%d'%k, True, WHITE)
     rect = text_surface.get_rect(center=(160,120))
